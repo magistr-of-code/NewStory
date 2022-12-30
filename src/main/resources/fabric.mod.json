@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "id": "newstory",
+  "version": "${version}",
+
+  "name": "New Story",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+
+  "license": "MIT License",
+  "icon": "assets/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.maxmag_change.newstory.NewStoryMod"
+    ],
+    "client": [
+      "net.maxmag_change.newstory.NewStoryClient"
+    ]
+  },
+  "mixins": [
+    "newstory.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.11",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
