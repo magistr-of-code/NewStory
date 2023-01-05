@@ -1,0 +1,33 @@
+package net.maxmag_change.newstory.item.custom;
+
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.math.BlockPos;
+
+import static net.minecraft.block.Blocks.*;
+
+public class TrainingWand extends Item {
+    public TrainingWand(Settings settings) {
+        super(settings);
+    }
+
+    @Override
+    public ActionResult useOnBlock(ItemUsageContext context) {
+            BlockPos pos = context.getBlockPos();
+            Block block = context.getWorld().getBlockState(pos).getBlock();
+            if (ScrollOfBreak.isSelect) {
+                if(block == YELLOW_WOOL || block == GRAY_WOOL || block == LIGHT_GRAY_WOOL) {
+                    context.getWorld().breakBlock(pos,true);
+                }
+            }
+            if (ScrollOfFire.isSelect) {
+                if(context.getWorld().getBlockState(pos.up(1)).getBlock() == AIR) {
+                    context.getWorld().setBlockState(pos.up(1), FIRE.getDefaultState());
+                }
+            }
+
+        return super.useOnBlock(context);
+    }
+}

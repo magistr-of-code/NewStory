@@ -32,7 +32,7 @@ public class ModBlocks {
     }
 
     public static final Block CAULDRON = registerBlock("cauldron",
-                new Cauldron(FabricBlockSettings.of(Material.METAL).strength(2f)), ItemGroups.BUILDING_BLOCKS);
+                new Cauldron(FabricBlockSettings.of(Material.METAL).strength(2f)), ItemGroups.FUNCTIONAL);
 
 
 }

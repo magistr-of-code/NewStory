@@ -163,6 +163,44 @@
 			}
 		}
 	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [9.75, 0, 0],
+			"translation": [0, 0, -1.25],
+			"scale": [0.21, 0.21, 0.21]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [11, 0, 0],
+			"translation": [0, 0, -1.75],
+			"scale": [0.27, 0.26, 0.25]
+		},
+		"firstperson_righthand": {
+			"rotation": [-21.75, 0, 0],
+			"translation": [-0.25, 1.75, -0.5],
+			"scale": [0.33, 0.33, 0.33]
+		},
+		"firstperson_lefthand": {
+			"rotation": [-21.75, 0, 0],
+			"translation": [-0.25, 1.75, -0.5],
+			"scale": [0.33, 0.33, 0.33]
+		},
+		"ground": {
+			"translation": [0, -1.75, 0],
+			"scale": [0.33, 0.33, 0.33]
+		},
+		"gui": {
+			"rotation": [11.5, 30, 2.49],
+			"scale": [0.63, 0.63, 0.66]
+		},
+		"head": {
+			"translation": [0, 11.5, 0],
+			"scale": [0.64, 0.64, 0.63]
+		},
+		"fixed": {
+			"translation": [0, 0, -2.25],
+			"scale": [0.44, 0.43, 0.45]
+		}
+	},
 	"groups": [
 		{
 			"name": "VoxelShapes",

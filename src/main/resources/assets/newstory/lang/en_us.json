@@ -1,5 +1,11 @@
 {
   "item.newstory.dimension_powder": "Dimension Powder",
   "item.newstory.wand": "Wand",
+  "item.newstory.training_wand": "Training Wand",
+  "item.newstory.steel": "Steel",
+  "item.newstory.dimension_pearl": "Dimension Pearl",
+  "item.newstory.scroll_of_fire": "Scroll Of Fire",
+  "item.newstory.scroll_of_break": "Scroll Of Break",
+  "item.newstory.scroll_of_carrying": "Scroll Of Carrying",
   "block.newstory.cauldron": "Cauldron"
 }

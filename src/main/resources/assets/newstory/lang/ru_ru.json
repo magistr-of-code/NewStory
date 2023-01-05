@@ -1,5 +1,11 @@
 {
   "item.newstory.dimension_powder": "Межимереческая Пыль",
   "item.newstory.wand": "Волшебная Палочка",
-  "block.newstory.cauldron": "Котёл"
+  "item.newstory.training_wand": "Тренеровочная Волшебная Палочка",
+  "item.newstory.steel": "Сталь",
+  "item.newstory.dimension_pearl": "Межимереческий Жемчуг",
+  "item.newstory.scroll_of_fire": "Свиток Огня",
+  "item.newstory.scroll_of_break": "Свиток Разрушения",
+  "block.newstory.cauldron": "Котёл",
+  "item.newstory.scroll_of_carrying": "Свиток Переноса"
 }

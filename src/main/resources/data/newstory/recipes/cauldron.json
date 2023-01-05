@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key" :{
+    "#": {
+      "item": "newstory:steel"
+    },
+    "@": {
+      "item": "minecraft:air"
+    }
+  },
+  "pattern": [
+    "#@#",
+    "#@#",
+    "###"
+  ],
+  "result": {
+    "item": "newstory:cauldron"
+  }
+
+}
