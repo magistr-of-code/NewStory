@@ -21,6 +21,8 @@ public class ModItems {
             new EnderPearlItem(new FabricItemSettings()), ItemGroups.INGREDIENTS);
     public static final Item STEEL = registerItem("steel",
             new Item(new FabricItemSettings()), ItemGroups.INGREDIENTS);
+    public static final Item MANGROVE_STICK = registerItem("mangrove_stick",
+            new Item(new FabricItemSettings()), ItemGroups.INGREDIENTS);
     public static final Item WAND = registerItem("wand",
             new Wand(new FabricItemSettings()), ItemGroups.COMBAT);
     public static final Item TRAINING_WAND = registerItem("training_wand",

@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.maxmag_change.newstory.NewStoryMod;
 import net.maxmag_change.newstory.block.custom.Cauldron;
+import net.maxmag_change.newstory.block.custom.DoorLock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
@@ -33,6 +34,8 @@ public class ModBlocks {
 
     public static final Block CAULDRON = registerBlock("cauldron",
                 new Cauldron(FabricBlockSettings.of(Material.METAL).strength(2f)), ItemGroups.FUNCTIONAL);
+    public static final Block DOOR_LOCK = registerBlock("door_lock",
+            new DoorLock(FabricBlockSettings.of(Material.METAL).strength(2f)), ItemGroups.FUNCTIONAL);
 
 
 }

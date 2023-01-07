@@ -4,14 +4,11 @@
   "key" :{
     "#": {
       "item": "newstory:steel"
-    },
-    "@": {
-      "item": "minecraft:air"
     }
   },
   "pattern": [
-    "#@#",
-    "#@#",
+    "# #",
+    "# #",
     "###"
   ],
   "result": {

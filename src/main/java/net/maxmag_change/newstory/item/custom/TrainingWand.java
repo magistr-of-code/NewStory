@@ -1,6 +1,7 @@
 package net.maxmag_change.newstory.item.custom;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.util.ActionResult;
@@ -12,6 +13,7 @@ public class TrainingWand extends Item {
     public TrainingWand(Settings settings) {
         super(settings);
     }
+    BlockState state;
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
@@ -21,12 +23,28 @@ public class TrainingWand extends Item {
                 if(block == YELLOW_WOOL || block == GRAY_WOOL || block == LIGHT_GRAY_WOOL) {
                     context.getWorld().breakBlock(pos,true);
                 }
-            }
-            if (ScrollOfFire.isSelect) {
+            }if (ScrollOfFire.isSelect) {
                 if(context.getWorld().getBlockState(pos.up(1)).getBlock() == AIR) {
                     context.getWorld().setBlockState(pos.up(1), FIRE.getDefaultState());
                 }
             }
+        if(ScrollOfCarrying.isSelect){
+            if(!context.getWorld().isClient()){
+                if(ScrollOfCarrying.HaveBlock) {
+                    if(context.getWorld().getBlockState(pos.up(1)).getBlock() == AIR) {
+                        context.getWorld().setBlockState(pos.up(1), state);
+                        ScrollOfCarrying.HaveBlock = false;
+                    }
+                }
+                else {
+                    if (block != BARRIER && block != BEDROCK) {
+                        state = context.getWorld().getBlockState(pos);
+                        ScrollOfCarrying.HaveBlock = true;
+                        context.getWorld().breakBlock(pos, false);
+                    }
+                }
+            }
+        }
 
         return super.useOnBlock(context);
     }

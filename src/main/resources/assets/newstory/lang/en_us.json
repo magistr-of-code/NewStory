@@ -7,5 +7,7 @@
   "item.newstory.scroll_of_fire": "Scroll Of Fire",
   "item.newstory.scroll_of_break": "Scroll Of Break",
   "item.newstory.scroll_of_carrying": "Scroll Of Carrying",
-  "block.newstory.cauldron": "Cauldron"
+  "block.newstory.cauldron": "Cauldron",
+  "block.newstory.door_lock": "Door Lock",
+  "item.newstory.mangrove_stick": "Mangrove Stick"
 }

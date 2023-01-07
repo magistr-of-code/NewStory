@@ -7,5 +7,7 @@
   "item.newstory.scroll_of_fire": "Свиток Огня",
   "item.newstory.scroll_of_break": "Свиток Разрушения",
   "block.newstory.cauldron": "Котёл",
-  "item.newstory.scroll_of_carrying": "Свиток Переноса"
+  "item.newstory.scroll_of_carrying": "Свиток Переноса",
+  "block.newstory.door_lock": "Дверной Замок",
+  "item.newstory.mangrove_stick": "Магровая Палка"
 }
