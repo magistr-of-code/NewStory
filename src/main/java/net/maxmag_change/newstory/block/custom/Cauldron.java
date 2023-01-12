@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -21,6 +22,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
@@ -75,7 +77,6 @@ public class Cauldron extends HorizontalFacingBlock {
     public BlockState rotate(BlockState state, BlockRotation rotation) {
         return super.rotate(state, rotation);
     }
-
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (state.get(FULL) && player.getInventory().getStack(player.getInventory().selectedSlot).getItem() == Items.WATER_BUCKET) {
@@ -96,7 +97,6 @@ public class Cauldron extends HorizontalFacingBlock {
         }
         return ActionResult.success(world.isClient);
     }
-
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         builder.add(FACING, FULL);
