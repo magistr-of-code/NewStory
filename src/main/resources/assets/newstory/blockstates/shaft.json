@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "newstory:block/shaft" },
+    "facing=east": { "model": "newstory:block/shaft", "y":  90},
+    "facing=south": { "model": "newstory:block/shaft", "y": 180 },
+    "facing=west": { "model": "newstory:block/shaft", "y": 270 },
+    "facing=up": { "model": "newstory:block/shaft", "x": 180 },
+    "facing=down": { "model": "newstory:block/shaft", "x": 180 }
+  }
+}
