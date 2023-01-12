@@ -11,6 +11,7 @@ public class NewStoryClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.DOOR_LOCK, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CAULDRON, RenderLayer.getTranslucent());
     }
 }
