@@ -1,20 +1,19 @@
 package net.maxmag_change.newstory.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
+import net.minecraft.item.*;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.state.property.Property;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
@@ -26,11 +25,14 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.stream.Stream;
 
 public class Cauldron extends HorizontalFacingBlock {
+    public static final BooleanProperty FULL = BooleanProperty.of("full");
     public static final DirectionProperty FACING = Properties.HORIZONTAL_FACING;
 
     public Cauldron(Settings settings) {
@@ -75,18 +77,29 @@ public class Cauldron extends HorizontalFacingBlock {
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (state.get(FULL) && player.getInventory().getStack(player.getInventory().selectedSlot).getItem() == Items.WATER_BUCKET) {
+            fillCauldron(world, pos, player, hand, player.getStackInHand(hand),state.cycle(FULL), SoundEvents.ITEM_BUCKET_EMPTY);
+        }
+        return super.onUse(state, world, pos, player, hand, hit);
+    }
+
+    static ActionResult fillCauldron(World world, BlockPos pos, PlayerEntity player, Hand hand, ItemStack stack, BlockState state, SoundEvent soundEvent) {
+        if (!world.isClient) {
+            Item item = stack.getItem();
+            player.setStackInHand(hand, ItemUsage.exchangeStack(stack, player, new ItemStack(Items.BUCKET)));
+            player.incrementStat(Stats.FILL_CAULDRON);
+            player.incrementStat(Stats.USED.getOrCreateStat(item));
+            world.setBlockState(pos, state);
+            world.playSound((PlayerEntity) null, pos, soundEvent, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.emitGameEvent((Entity) null, GameEvent.FLUID_PLACE, pos);
+        }
+        return ActionResult.success(world.isClient);
     }
 
     @Override
-    public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
-        if (entity instanceof ItemEntity) {
-            if (ItemEntity.merge(Items.ACACIA_BOAT.getDefaultStack(),Items.ACACIA_BOAT.getDefaultStack(),1) == Items.ACACIA_BOAT.getDefaultStack()){
-
-            }
-
-        }
-        super.onSteppedOn(world, pos, state, entity);
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING, FULL);
     }
+
 }
